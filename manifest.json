@@ -13,6 +13,9 @@
         "activeTab",
         "scripting"
     ],
+    "host_permissions": [
+        "https://api.openweathermap.org/*"
+    ],
     "content_scripts": [
         {
             "matches": [

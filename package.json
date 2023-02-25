@@ -1,0 +1,28 @@
+{
+  "name": "live-captions-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejjjjkang/live-captions-extension.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejjjjkang/live-captions-extension/issues"
+  },
+  "homepage": "https://github.com/ejjjjkang/live-captions-extension#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
