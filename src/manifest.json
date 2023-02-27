@@ -7,7 +7,7 @@
         "default_popup": "index.html"
     },
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "background.bundle.js"
     },
     "permissions": [
         "activeTab",
@@ -26,7 +26,7 @@
                 "styles.css"
             ],
             "js": [
-                "scripts/livecaption.js"
+                "livecaption.bundle.js"
             ]
         }
     ]

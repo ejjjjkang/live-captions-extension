@@ -13,7 +13,7 @@ async function setCaption(e) {
     if (active) {
             chrome.scripting.executeScript({
             target: { tabId: await getTabId() },
-            files: ["scripts/livecaption.js"]
+            files: ["livecaption.bundle.js"]
             })
                chrome.scripting.insertCSS({
                 target: { tabId: await getTabId() },
