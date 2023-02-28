@@ -1,8 +1,10 @@
 const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const fileSystem = require('fs-extra')
+const dotenv = require('dotenv')
 const webpack = require('webpack');
+
+dotenv.config()
 
 module.exports = {
     entry: {
@@ -15,6 +17,13 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: "[name].bundle.js",
     },
+    resolve: {
+  fallback: {
+            fs: false,
+            path: false,
+      os: false
+  }
+},
     devtool: 'cheap-module-source-map',
     module: {
         rules: [
@@ -57,8 +66,9 @@ module.exports = {
             template: './src/index.html',
             inject: 'body'
         }),
-        new webpack.EnvironmentPlugin(['WEATHER'])
-        
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(process.env)
+        })
     ],
    
 }
