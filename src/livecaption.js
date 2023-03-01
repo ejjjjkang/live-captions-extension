@@ -4,7 +4,8 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 //fetch wether
-const weatherInfo = env.process.WEATHER;
+const weatherInfo = process.env.WEATHER;
+console.log(weatherInfo)
 const video = document.getElementById('player');
 
 fetch(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=${weatherInfo}`)

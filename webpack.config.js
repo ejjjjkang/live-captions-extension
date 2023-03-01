@@ -1,10 +1,9 @@
 const path = require('path')
 const CopyPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const dotenv = require('dotenv')
+const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 
-dotenv.config()
 
 module.exports = {
     entry: {
@@ -18,11 +17,16 @@ module.exports = {
         filename: "[name].bundle.js",
     },
     resolve: {
-  fallback: {
-            fs: false,
-            path: false,
-      os: false
-  }
+        fallback: {
+                    fs: false,
+                    path: require.resolve("path-browserify"),
+                    os: false
+        },
+        alias: {
+            panel: path.resolve(__dirname, 'src/panel.js'),
+             livecaption: path.resolve(__dirname, 'src/livecaption.js'),
+             background: path.resolve(__dirname,  'src/background.js')
+        }
 },
     devtool: 'cheap-module-source-map',
     module: {
@@ -44,6 +48,13 @@ module.exports = {
         ]
     },
     plugins: [
+         new webpack.ProvidePlugin({
+              process: 'process/browser',
+            }),
+         new Dotenv({
+                  path: './.env', // Path to .env file (this is the default)
+                  safe: true, // load .env.example (defaults to "false" which does not use dotenv-safe)
+                }),
         new CopyPlugin({
             patterns: [
                 {
@@ -65,9 +76,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body'
-        }),
-        new webpack.DefinePlugin({
-            "process.env": JSON.stringify(process.env)
         })
     ],
    
