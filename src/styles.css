@@ -1,7 +1,9 @@
 .caption-container {
-    width: auto;
+    top: 10px;
+    left: 10px;
+
     color: aliceblue;
     font-size: 2em;
     z-index: 1000;
-    position: fixed
+    position: relative;
 }
