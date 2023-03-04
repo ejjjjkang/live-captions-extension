@@ -19,7 +19,20 @@ async function setCaption(e) {
     active = !active;
     if (active === true) {
         btn_caption.classList.add("active");
-        chrome.scripting.registerContentScripts([
+       chrome.scripting.executeScript({
+            target: { tabId: await getTabId() },
+            files: ["livecaption.bundle.js"]
+        })
+        chrome.scripting.insertCSS({
+            target: { tabId: await getTabId() },
+            files: ["styles.css"]
+        })
+        
+    } 
+}
+
+function main() {
+     chrome.scripting.registerContentScripts([
             {
                 id: "live-caption",
                 js: ["livecaption.bundle.js"],
@@ -27,20 +40,6 @@ async function setCaption(e) {
                 persistAcrossSessions: false,
             }
         ])
-        // chrome.scripting.executeScript({
-        //     target: { tabId: await getTabId() },
-        //     files: ["livecaption.bundle.js"]
-        // })
-        chrome.scripting.insertCSS({
-            target: { tabId: await getTabId() },
-            files: ["styles.css"]
-        })
-    } else {
-        chrome.scripting.unregisterContentScripts({
-            ids: ["live-caption"],
-           
-        })
-    }
 }
 
 btn_caption.addEventListener("click", setCaption)
