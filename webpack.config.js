@@ -73,6 +73,15 @@ module.exports = {
                 }
             ]
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "src/popup.css",
+                    to: path.join(__dirname, 'build'),
+                    force: true
+                }
+            ]
+        }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body'

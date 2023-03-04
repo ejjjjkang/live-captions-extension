@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#active-livecaption {
+    color: white;
+    background-color: black;
+}
+
+.active {
+    color: red;
+    background-color: white;
+}
