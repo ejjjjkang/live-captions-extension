@@ -26,7 +26,8 @@
                 "styles.css"
             ],
             "js": [
-                "livecaption.bundle.js"
+                "livecaption.bundle.js",
+                "interact.min.bundle.js"
             ]
         }
     ]

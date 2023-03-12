@@ -8,11 +8,6 @@ async function getTabId() {
     return tab.id;
 }
 
-async function removeContainer() {
-    const caption_container = document.getElementsByClassName('caption-container')[0]
-    await caption_container.remove();
-
-}   
 
 async function setCaption(e) {
     e.preventDefault();
@@ -34,12 +29,16 @@ async function setCaption(e) {
 function main() {
      chrome.scripting.registerContentScripts([
             {
-                id: "live-caption",
+                id: "live-caption-extension",
                 js: ["livecaption.bundle.js"],
-                matches: ["*://youtube.com/*"],
+                matches: ["*://meet.google.com/*"],
                 persistAcrossSessions: false,
             }
         ])
 }
 
+
 btn_caption.addEventListener("click", setCaption)
+
+
+main();

@@ -24,9 +24,12 @@ module.exports = {
         },
         alias: {
             panel: path.resolve(__dirname, 'src/panel.js'),
-             livecaption: path.resolve(__dirname, 'src/livecaption.js'),
-             background: path.resolve(__dirname,  'src/background.js')
-        }
+            livecaption: path.resolve(__dirname, 'src/livecaption.js'),
+            background: path.resolve(__dirname, 'src/background.js'),
+            interact: path.resolve(__dirname, 'src/interact.js')
+             
+        },
+        extensions: [ ".js"]
 },
     devtool: 'cheap-module-source-map',
     module: {
