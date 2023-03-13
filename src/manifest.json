@@ -7,15 +7,18 @@
         "default_popup": "index.html"
     },
     "background": {
-        "service_worker": "background.bundle.js"
+        "service_worker": "background.bundle.js",
+        "persistent": false
     },
     "permissions": [
         "activeTab",
         "scripting"
     ],
     "host_permissions": [
-        "https://api.openweathermap.org/*"
+        "https://api.openweathermap.org/*",
+        "http://localhost:3000/*"
     ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval' http://localhost:3000; object-src 'self'",
     "content_scripts": [
         {
             "matches": [

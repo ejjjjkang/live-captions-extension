@@ -1,6 +1,7 @@
 //manipulate DOM emlements
 import * as dotenv from "dotenv";
-import interact from './lib/interact.min.js';
+import interact from 'interact';
+import axios from 'axios';
 
 dotenv.config();
 
@@ -20,19 +21,22 @@ const mutationObserver = new MutationObserver((mutation) => {
         injectScript.classList.add('caption-container');
         injectScript.appendChild(testScript);
         captionText.after(injectScript);
+        fetchData(word).then((res) => {
+            console.log(res)
+        }).catch((err) => { console.log(err)});
+        
     })
 })
+
+async function fetchData(req, res, next) { 
+    await axios.post(process.env.ADRESS, { data: req }, {
+        headers: {
+             "Content-Type": "application/json",
+             "Accept": "application/json"
+        },
+        mode: "cors"
+    });
+}
+
+
 mutationObserver.observe(captionText, config)
-
-// // Get the element with the class name 'example-class'
-// const element = document.querySelector('.example-class');
-
-// // Get the computed style of the element
-// const styles = getComputedStyle(element);
-
-// // Check the value of the 'color' property
-// const colorValue = styles.getPropertyValue('color');
-
-// // Output the value to the console
-// console.log(colorValue);
-

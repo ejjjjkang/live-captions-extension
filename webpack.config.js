@@ -26,7 +26,8 @@ module.exports = {
             panel: path.resolve(__dirname, 'src/panel.js'),
             livecaption: path.resolve(__dirname, 'src/livecaption.js'),
             background: path.resolve(__dirname, 'src/background.js'),
-            interact: path.resolve(__dirname, 'src/interact.js')
+            interact: path.resolve(__dirname, 'src/lib/interact.min.js'),
+            axios: path.resolve(__dirname, 'src/lib/axios.min.js')
              
         },
         extensions: [ ".js"]
